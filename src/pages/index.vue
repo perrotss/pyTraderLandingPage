@@ -1,171 +1,137 @@
 <route lang="yaml">
-meta:
-  layout: demo
-  transition: fade-slow
-</route>
-
-<script setup lang="ts">
-import {
-  productStacks,
-  vulkFeatures,
-  vulkExperience,
-  vulkBenefits,
-  componentFeatures,
-} from '/@src/data/demo'
-</script>
-
-<template>
-  <div>
-    <HeroF />
-
-    <Section wave="wave-1">
-      <Container>
-        <ContentBlockB
-          :title="productStacks.title"
-          :subtitle="productStacks.subtitle"
-          :text="productStacks.text"
-          :images="productStacks.images"
-        />
-      </Container>
-    </Section>
-
-    <Section color="grey">
-      <Container>
-        <SectionTitle
-          title="All you need to build your project is there"
-          subtitle="Amazing Features"
-        />
-
-        <BoxedFeatures :features="vulkFeatures" />
-
-        <ButtonsCta title="Buy Vulk" subtitle="Available on Envato Market">
-          <Button
-            color="primary"
-            href="https://themeforest.net/user/cssninjastudio/portfolio"
-            :long="2"
-            raised
-          >
-            <span>Buy Now</span>
-          </Button>
-          <a href="https://support.cssninja.io" class="button second-button">
-            Chat with us
-          </a>
-        </ButtonsCta>
-      </Container>
-    </Section>
-
-    <Section>
-      <Container>
-        <SectionTitle
-          title="Build a professional website"
-          subtitle="Developer Experience"
-        />
-
-        <FeatureBlockB
-          size="small"
-          :features="vulkExperience"
-          :columns="3"
-          :limit="8"
-        />
-      </Container>
-    </Section>
-
-    <Section wave="wave-1">
-      <Container>
-        <SectionTitle
-          title="Get Started with Vulk"
-          subtitle="Quickstart Tutorial"
-        />
-        <Buttons alignment="centered" class="py-5">
-          <Button
-            href="https://discord.cssninja.io/"
-            color="primary"
-            :long="2"
-            icon-left="fa-brands:discord"
-            raised
-          >
-            <span>Discord Access</span>
-          </Button>
-          <Popover custom spacing="medium" arrow hover>
-            <template #popover>
-              <IconPopover
-                icon="codicon:github-alt"
-                color="purple"
-                heading="GitHub access"
-                content="Send us your GitHub username at https://support.cssninja.io"
-              />
-            </template>
-            <Button :long="2" icon-left="fa-brands:github" raised>
-              <span>GitHub Access</span>
-            </Button>
-          </Popover>
-        </Buttons>
-        <div class="video-player-container-wrapper pb-6">
-          <!--Player
-            ratio="16by9"
-            source="https://www.youtube.com/embed/obX0KgqZnYs?modestbranding=1&rel=0&showinfo=0"
-            title="Vulk | Overview & Quickstart"
-            embed
-          /-->
-          <Player
-            ratio="16by9"
-            source="/assets/video/meeting.mp4"
-            poster="/assets/screenshots/vulk-yt-cover.png"
-            title="video title"
+  meta:
+    layout: default
+  </route>
+  
+  <script setup lang="ts">
+  import { customerLogos } from '/@src/data/pages/logos'
+  import {
+    appFeatures,
+    tabbedProcess,
+    testimonials,
+  } from '/@src/data/pages/marketing'
+  import { features } from '/@src/data/blocks/features'
+  import { footer } from '/@src/data/footer'
+  </script>
+  
+  <template>
+    <div>
+      <HeroB />
+  
+      <Section>
+        <Container>
+          <LogoSection
+            title="WE DRIVE RESULTS FOR ENTREPRENEURS TO THE FORTUNE 500"
+            :logos="customerLogos"
           />
-        </div>
-      </Container>
-    </Section>
-
-    <Section id="template-demos" color="grey">
-      <Container>
-        <SectionTitle title="Beautiful demo pages" subtitle="Premium Designs" />
-
-        <DemoList />
-      </Container>
-    </Section>
-
-    <Section wave="wave-1">
-      <Container>
-        <SectionTitle
-          title="Vulk is a Top-Tier product"
-          subtitle="Carefully Handcrafted"
-        />
-
-        <DemoFeatures :features="vulkBenefits" />
-      </Container>
-    </Section>
-
-    <Section id="template-components" color="grey">
-      <Container>
-        <SectionTitle
-          title="Explore the Component Library"
-          subtitle="Reusable Components"
-        />
-
-        <FeatureBlockH :features="componentFeatures" :limit="3" />
-
-        <Buttons alignment="centered">
-          <Button color="primary" to="blocks" :long="3" raised>
-            <span>All Components</span>
-          </Button>
-        </Buttons>
-
-        <DemoComponents />
-      </Container>
-    </Section>
-
-    <Section>
-      <Container>
-        <SectionTitle
-          title="3 Reasons to choose Vulk"
-          subtitle="You'll love this product"
-        />
-
-        <DemoChoice />
-      </Container>
-    </Section>
-
-    <DemoFooter />
-  </div>
-</template>
+        </Container>
+      </Section>
+  
+      <Section>
+        <Container>
+          <SideSection
+            subtitle="DATA DRIVEN"
+            title="Your entire business, connected and powered by AI"
+            content="To grow your business on today’s dynamic marketplaces, you need
+                  an advantage.
+                  With our AI working continually behind the scenes, you can
+                  unlock growth opportunities and compete at the highest level
+                  24/7."
+            cta="Explore our features"
+            to="/"
+            image="/assets/illustrations/features/thinking.svg"
+            image-width="192"
+            image-height="150"
+            blob
+          />
+        </Container>
+      </Section>
+  
+      <Section>
+        <Container>
+          <SectionTitle
+            title="Build, optimize, and analyze your advertising"
+            subtitle="The industry-leading Advertising Optimization solution"
+          />
+  
+          <AppSection
+            :features="appFeatures"
+            image="/assets/illustrations/apps/hero-app-screen.png"
+            dark-image="/assets/illustrations/apps/hero-app-screen-dark.png"
+            image-width="1519"
+            image-height="949"
+            blob
+          />
+        </Container>
+      </Section>
+  
+      <Section>
+        <Container>
+          <!--Section Title-->
+          <SectionTitle
+            title="Goal based campaign creation made easy"
+            subtitle="A solution to instantly reach your customers"
+          />
+  
+          <!--Process Title-->
+          <TabbedSection
+            :steps="tabbedProcess.steps"
+            :images="tabbedProcess.images"
+            image-width="800"
+            image-height="1011"
+          />
+        </Container>
+      </Section>
+  
+      <Section color="darker">
+        <Container>
+          <SpinnerSection
+            inverted
+            subtitle="Optional Ad Management Services"
+            title="Results-driven, affordable ad management"
+            content="Partner with our advertising experts to save time, boost performance, and meet your milestones on your growth journey."
+            cta="Learn about our optional services"
+            to="index"
+            image="/assets/illustrations/chart/vulk-chart.png"
+            layer-base="/assets/illustrations/chart/vulk-chart"
+            layer-extension="svg"
+            image-width="150"
+            image-height="150"
+          />
+        </Container>
+      </Section>
+  
+      <Section>
+        <Container>
+          <FeatureBlockA :features="features" :columns="3" :limit="8" />
+          <!--Section Title-->
+          <SectionTitle
+            class="pt-6"
+            title="Why Vulk, straight from our customers"
+            subtitle="Take a quick look at what they say"
+          />
+          <TestimonialsGrid :testimonials="testimonials" blobs />
+        </Container>
+      </Section>
+  
+      <Section bottom-spaced>
+        <Container>
+          <SideSection
+            subtitle="Artificial Intelligence"
+            title="Unlock growth with artificial intelligence"
+            content="Save time and money with automated campaign creation, execution and optimization. Input your strategic objectives (growth, profitability, brand defense, awareness), and rely on Vulk's ad engine to execute tactically."
+            cta="Learn more about our product"
+            to="index"
+            image="/assets/illustrations/features/earning.svg"
+            dark-image="/assets/illustrations/features/earning-dark.svg"
+            blob
+            image-width="192"
+            image-height="150"
+          />
+        </Container>
+      </Section>
+  
+      <Footer :content="footer" color="dark" />
+    </div>
+  </template>
+  
